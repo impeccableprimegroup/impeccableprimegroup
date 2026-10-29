@@ -45,3 +45,18 @@ body.c{min-height:100vh;display:flex;flex-direction:column;background:var(--navy
 
 /* footer */
 .copy{background:#071f44;color:#fff;text-align:center;padding:12px 5%;font-size:.9rem}
+
+/* pop-up messages */
+.pop{position:fixed;left:16px;bottom:16px;z-index:60;width:min(360px,calc(100% - 32px));display:flex;gap:14px;align-items:center;padding:18px 18px 20px 16px;background:linear-gradient(135deg,#0B2F63,#08224A);color:#fff;border-radius:18px;border-left:6px solid var(--orange);box-shadow:0 16px 40px rgba(0,0,0,.45);overflow:hidden;animation:popin .5s cubic-bezier(.2,.9,.3,1.2) both}
+.pop.out{animation:popout .35s ease both}
+.pop-i{flex:none;width:52px;height:52px;border-radius:50%;background:var(--orange);display:grid;place-items:center;font-size:1.6rem;box-shadow:0 6px 14px rgba(0,0,0,.35)}
+.pop-c p{font-weight:700;font-size:1rem;line-height:1.35;margin:0 0 10px;padding-right:18px}
+.pop-b{display:inline-block;background:var(--orange);color:#fff;text-decoration:none;font-weight:900;font-size:.9rem;text-transform:uppercase;padding:9px 16px;border-radius:10px;box-shadow:0 6px 14px rgba(0,0,0,.35)}
+.pop-b:hover{background:#ff7d33}
+.pop-x{position:absolute;top:6px;right:8px;background:none;border:0;color:#fff;font-size:1.6rem;line-height:1;cursor:pointer;opacity:.8}
+.pop-bar{position:absolute;left:0;bottom:0;height:4px;background:var(--orange);width:100%;animation:popbar 9s linear forwards}
+@keyframes popin{from{opacity:0;transform:translateY(30px) scale(.95)}to{opacity:1;transform:none}}
+@keyframes popout{to{opacity:0;transform:translateY(20px)}}
+@keyframes popbar{to{width:0}}
+@media(max-width:600px){.pop{bottom:76px;left:12px;right:12px;width:auto}}
+@media(prefers-reduced-motion:reduce){.pop,.pop-bar{animation:none}}
